@@ -1,0 +1,22 @@
+// thing which are everywhere
+
+// Vendors
+@import './vendors/normalize.scss';
+
+// Abstract
+@import './abstract/constants';
+@import './abstract/mixins';
+@import './abstract/placeholders';
+
+// Base
+@import './base/base';
+
+// Components
+@import './components/buttons';
+
+// Layout
+@import './layout/header.scss';
+@import './layout/footer.scss';
+
+// Themes
+@import './themes/dark';
