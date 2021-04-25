@@ -1,2 +1,2 @@
 # mpa-starter
-Multi-Page-Appplication starter template
+Multi-Page-Application starter template
