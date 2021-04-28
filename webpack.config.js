@@ -37,7 +37,7 @@ module.exports = {
   // how to write the compiled files to disk
   // https://webpack.js.org/concepts/output/
   output: {
-    filename: 'static/js/[name].[hash:20].js',
+    filename: 'static/js/[name].js',
     path: path.resolve(__dirname, 'dist')
   },
 
@@ -137,13 +137,13 @@ module.exports = {
       template: './src/pages/contacts/index.html',
       filename: './contacts/index.html',
       inject: 'body',
-      chunks: ['contacts', 'share'],
+      chunks: ['shared', 'contacts'],
     }),
     new HtmlWebpackPlugin({
       template: './src/pages/home/index.html',
       filename: './home/index.html',
       inject: 'body',
-      chunks: ['home', 'share'],
+      chunks: ['home', 'shared'],
     })
   ],
 
