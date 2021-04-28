@@ -6,9 +6,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 // const TerserPlugin = require('terser-webpack-plugin')
 
-const buildPath = path.resolve(__dirname, 'dist')
-
-
 const ENV = process.env.npm_lifecycle_event;
 const isDev = ENV === 'dev';
 const isProd = ENV === 'build';
@@ -40,8 +37,8 @@ module.exports = {
   // how to write the compiled files to disk
   // https://webpack.js.org/concepts/output/
   output: {
-    filename: '[name].[hash:20].js',
-    path: buildPath
+    filename: 'static/js/[name].[hash:20].js',
+    path: path.resolve(__dirname, 'dist')
   },
 
   // https://webpack.js.org/concepts/loaders/
@@ -79,7 +76,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: 'assets/imgs',
+              outputPath: 'static/imgs',
               name: '[name].[ext]',
               esModule: false,
             },
@@ -133,7 +130,9 @@ module.exports = {
   // https://webpack.js.org/concepts/plugins/
   plugins: [
     new CleanWebpackPlugin(), // cleans output.path by default
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'static/css/[name].css'
+    }),
     new HtmlWebpackPlugin({
       template: './src/pages/contacts/index.html',
       filename: './contacts/index.html',
