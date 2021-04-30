@@ -12,15 +12,14 @@
     "type": "git",
     "url": "git+https://github.com/Abdulloh76/mpa-starter.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["webpack-config", "webpack-mpa-starter", "multi-page-application", "webpack-mpa-template", "webpack-mpa"],
+  "author": "Abdullokh Musaev <musayevabdulloh76@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Abdulloh76/mpa-starter/issues"
   },
   "homepage": "https://github.com/Abdulloh76/mpa-starter#readme",
   "devDependencies": {
-    "clean-webpack-plugin": "*",
     "css-loader": "^5.2.4",
     "css-minimizer-webpack-plugin": "^2.0.0",
     "file-loader": "^6.2.0",

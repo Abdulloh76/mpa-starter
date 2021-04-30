@@ -1,6 +1,5 @@
 const path = require('path')
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -30,7 +29,8 @@ module.exports = {
   // https://webpack.js.org/concepts/output/
   output: {
     filename: 'static/js/[name].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
 
   // https://webpack.js.org/concepts/loaders/
@@ -125,7 +125,6 @@ module.exports = {
 
   // https://webpack.js.org/concepts/plugins/
   plugins: [
-    new CleanWebpackPlugin(), // cleans output.path by default
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].css'
     }),
