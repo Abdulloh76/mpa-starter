@@ -3,19 +3,11 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-// const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-// const TerserPlugin = require('terser-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const ENV = process.env.npm_lifecycle_event;
-const isDev = ENV === 'dev';
 const isProd = ENV === 'build';
-
-function setDevTool() {
-  if (isDev) {
-    return 'source-map';
-  }
-  return 'none';
-}
 
 function setDMode() {
   if (isProd) {
@@ -26,7 +18,7 @@ function setDMode() {
 
 module.exports = {
   mode: setDMode(),
-  devtool: setDevTool(),
+  devtool: 'source-map',
   // https://webpack.js.org/concepts/entry-points/#multi-page-application
   entry: {
     shared: './src/js/sharedModules/share.js',
@@ -44,14 +36,6 @@ module.exports = {
   // https://webpack.js.org/concepts/loaders/
   module: {
     rules: [
-      // {
-      //   test: /\.js$/i,
-      //   exclude: /node_modules/,
-      //   loader: 'babel-loader',
-      //   options: {
-      //     presets: ['@babel/preset-env']
-      //   }
-      // },
       {
         test: /\.html$/i,
         loader: 'html-loader',
@@ -160,15 +144,11 @@ module.exports = {
   ],
 
   // https://webpack.js.org/configuration/optimization/
-  // optimization: {
-  //   minimize: true,
-  //   minimizer: [
-  //     new TerserPlugin({
-  //       cache: true,
-  //       parallel: true,
-  //       sourceMap: true
-  //     }),
-  //     new OptimizeCssAssetsPlugin({})
-  //   ]
-  // }
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin(),
+      new CssMinimizerPlugin(),
+    ]
+  }
 }
