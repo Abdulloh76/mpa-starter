@@ -53,9 +53,21 @@ module.exports = {
       //   }
       // },
       {
+        test: /\.html$/i,
+        loader: 'html-loader',
+        options: {
+          esModule: false,
+        },
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../../', 
+            }
+          },
           {
             loader: 'css-loader',
             options: {
