@@ -5,14 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --watch --mode development",
+    "dev": "webpack --mode development",
     "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Abdulloh76/mpa-starter.git"
   },
-  "keywords": ["webpack-config", "webpack-mpa-starter", "multi-page-application", "webpack-mpa-template", "webpack-mpa"],
+  "keywords": [
+    "webpack-config",
+    "webpack-mpa-starter",
+    "multi-page-application",
+    "webpack-mpa-template",
+    "webpack-mpa"
+  ],
   "author": "Abdullokh Musaev <musayevabdulloh76@gmail.com>",
   "license": "ISC",
   "bugs": {
@@ -22,6 +28,9 @@
   "devDependencies": {
     "css-loader": "^5.2.4",
     "css-minimizer-webpack-plugin": "^2.0.0",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
     "file-loader": "^6.2.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",

@@ -1,8 +1,9 @@
-const path = require('path')
+const path = require('path');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const TerserPlugin = require('terser-webpack-plugin');
 
 const ENV = process.env.npm_lifecycle_event;
@@ -22,7 +23,7 @@ module.exports = {
   entry: {
     shared: './src/js/sharedModules/share.js',
     home: './src/js/home.js',
-    contacts: './src/js/contacts.js'
+    contacts: './src/js/contacts.js',
   },
 
   // how to write the compiled files to disk
@@ -49,8 +50,8 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '../../', 
-            }
+              publicPath: '../../',
+            },
           },
           {
             loader: 'css-loader',
@@ -120,13 +121,13 @@ module.exports = {
       //     }
       //   ]
       // }
-    ]
+    ],
   },
 
   // https://webpack.js.org/concepts/plugins/
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'static/css/[name].css'
+      filename: 'static/css/[name].css',
     }),
     new HtmlWebpackPlugin({
       template: './src/pages/contacts/index.html',
@@ -139,7 +140,7 @@ module.exports = {
       filename: './home/index.html',
       inject: 'body',
       chunks: ['home', 'shared'],
-    })
+    }),
   ],
 
   // https://webpack.js.org/configuration/optimization/
@@ -148,6 +149,6 @@ module.exports = {
     minimizer: [
       new TerserPlugin(),
       new CssMinimizerPlugin(),
-    ]
-  }
-}
+    ],
+  },
+};
