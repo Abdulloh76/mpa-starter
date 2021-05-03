@@ -1,3 +1,3 @@
-import '../../sass/main.scss'
+import '../../sass/main.scss';
 
-console.log('hello from share module')
+console.log('hello from share module');

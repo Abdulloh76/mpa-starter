@@ -1,3 +1,3 @@
-import '../sass/pages/_home.scss'
+import '../sass/pages/_home.scss';
 
-console.log('hello from home module')
+console.log('hello from home module');
